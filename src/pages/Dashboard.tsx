@@ -1,4 +1,6 @@
 import Navbar from "@/components/Navbar";
+import MobileHeader from "@/components/MobileHeader";
+import BottomNav from "@/components/BottomNav";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -8,16 +10,17 @@ import { CalendarDays, Package, Star, Settings, Clock } from "lucide-react";
 
 const Dashboard = () => {
   return (
-    <div className="min-h-screen bg-gradient-subtle">
+    <div className="min-h-screen bg-gradient-subtle pb-20 md:pb-0">
       <Navbar />
+      <MobileHeader />
       
-      <div className="container py-8">
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-2">My Dashboard</h1>
-          <p className="text-muted-foreground text-lg">Manage your subscriptions and preferences</p>
+      <div className="container px-4 py-6 md:py-8">
+        <div className="mb-6 md:mb-8">
+          <h1 className="text-2xl md:text-4xl font-bold mb-1 md:mb-2">My Dashboard</h1>
+          <p className="text-muted-foreground text-sm md:text-lg">Manage your subscriptions and preferences</p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-6 mb-8">
+        <div className="grid lg:grid-cols-3 gap-4 md:gap-6 mb-6 md:mb-8">
           {/* Active Subscription Card */}
           <Card className="lg:col-span-2">
             <CardHeader>
@@ -43,9 +46,9 @@ const Dashboard = () => {
               
               <Progress value={57} className="h-2" />
               
-              <div className="grid grid-cols-2 gap-4 pt-4">
-                <Button variant="hero">Manage Subscription</Button>
-                <Button variant="outline">Pause Delivery</Button>
+              <div className="grid grid-cols-2 gap-3 md:gap-4 pt-4">
+                <Button variant="hero" className="text-xs md:text-sm">Manage Subscription</Button>
+                <Button variant="outline" className="text-xs md:text-sm">Pause Delivery</Button>
               </div>
             </CardContent>
           </Card>
@@ -175,6 +178,8 @@ const Dashboard = () => {
           </TabsContent>
         </Tabs>
       </div>
+      
+      <BottomNav />
     </div>
   );
 };

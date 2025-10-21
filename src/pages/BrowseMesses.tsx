@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
+import MobileHeader from "@/components/MobileHeader";
+import BottomNav from "@/components/BottomNav";
 import MessCard from "@/components/MessCard";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -79,19 +81,20 @@ const BrowseMesses = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-subtle">
+    <div className="min-h-screen bg-gradient-subtle pb-20 md:pb-0">
       <Navbar />
+      <MobileHeader />
       
-      <div className="container py-8">
+      <div className="container px-4 py-6 md:py-8">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-2">Discover Messes</h1>
-          <p className="text-muted-foreground text-lg">Find the perfect mess subscription for your daily meals</p>
+        <div className="mb-6 md:mb-8">
+          <h1 className="text-2xl md:text-4xl font-bold mb-1 md:mb-2">Discover Messes</h1>
+          <p className="text-muted-foreground text-sm md:text-lg">Find the perfect mess subscription</p>
         </div>
 
         {/* Search & Filters */}
-        <div className="mb-8 space-y-4">
-          <div className="flex flex-col md:flex-row gap-4">
+        <div className="mb-6 md:mb-8 space-y-3 md:space-y-4">
+          <div className="flex flex-col md:flex-row gap-3 md:gap-4">
             <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
@@ -122,19 +125,21 @@ const BrowseMesses = () => {
         </div>
 
         {/* Results Count */}
-        <div className="mb-6">
-          <p className="text-muted-foreground">
+        <div className="mb-4 md:mb-6">
+          <p className="text-sm md:text-base text-muted-foreground">
             Showing <span className="font-semibold text-foreground">{allMesses.length}</span> messes near you
           </p>
         </div>
 
         {/* Mess Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {allMesses.map((mess) => (
             <MessCard key={mess.id} {...mess} />
           ))}
         </div>
       </div>
+      
+      <BottomNav />
     </div>
   );
 };

@@ -1,5 +1,7 @@
 import { useParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
+import MobileHeader from "@/components/MobileHeader";
+import BottomNav from "@/components/BottomNav";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -39,50 +41,51 @@ const MessDetail = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-subtle">
+    <div className="min-h-screen bg-gradient-subtle pb-20 md:pb-0">
       <Navbar />
+      <MobileHeader />
       
-      <div className="container py-8">
+      <div className="container px-4 py-6 md:py-8">
         {/* Hero Section */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-12">
+        <div className="grid lg:grid-cols-2 gap-6 md:gap-8 mb-8 md:mb-12">
           <div className="space-y-4">
             <div className="rounded-2xl overflow-hidden shadow-luxury">
               <img 
                 src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=1200&q=80"
                 alt="Arabian Delights Mess"
-                className="w-full h-[400px] object-cover"
+                className="w-full h-[250px] md:h-[400px] object-cover"
               />
             </div>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-2 md:gap-4">
               <img 
                 src="https://images.unsplash.com/photo-1567337710282-00832b415979?w=400&q=80"
                 alt="Kitchen view"
-                className="rounded-lg h-24 w-full object-cover cursor-pointer hover:opacity-80 transition-opacity"
+                className="rounded-lg h-16 md:h-24 w-full object-cover cursor-pointer hover:opacity-80 transition-opacity"
               />
               <img 
                 src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&q=80"
                 alt="Meal prep"
-                className="rounded-lg h-24 w-full object-cover cursor-pointer hover:opacity-80 transition-opacity"
+                className="rounded-lg h-16 md:h-24 w-full object-cover cursor-pointer hover:opacity-80 transition-opacity"
               />
               <img 
                 src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&q=80"
                 alt="Dining area"
-                className="rounded-lg h-24 w-full object-cover cursor-pointer hover:opacity-80 transition-opacity"
+                className="rounded-lg h-16 md:h-24 w-full object-cover cursor-pointer hover:opacity-80 transition-opacity"
               />
             </div>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-4 md:space-y-6">
             <div>
               <div className="flex items-center gap-2 mb-2">
-                <Badge variant="success">
+                <Badge variant="success" className="text-[10px] md:text-xs">
                   <ShieldCheck className="h-3 w-3 mr-1" />
-                  A+ Hygiene Certified
+                  A+ Hygiene
                 </Badge>
-                <Badge variant="luxury">Premium</Badge>
+                <Badge variant="luxury" className="text-[10px] md:text-xs">Premium</Badge>
               </div>
-              <h1 className="text-4xl font-bold mb-3">Arabian Delights Mess</h1>
-              <div className="flex items-center gap-4 text-muted-foreground mb-4">
+              <h1 className="text-2xl md:text-4xl font-bold mb-2 md:mb-3">Arabian Delights Mess</h1>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-muted-foreground mb-3 md:mb-4 text-sm md:text-base">
                 <div className="flex items-center">
                   <MapPin className="h-4 w-4 mr-1" />
                   <span>Business Bay, Dubai</span>
@@ -93,14 +96,13 @@ const MessDetail = () => {
                   <span className="ml-1">(245 reviews)</span>
                 </div>
               </div>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-sm md:text-lg text-muted-foreground">
                 Experience authentic Arabian cuisine with a modern twist. Our mess specializes in 
-                traditional dishes prepared with premium ingredients and maintained under the highest 
-                hygiene standards.
+                traditional dishes prepared with premium ingredients.
               </p>
             </div>
 
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-3 md:gap-4">
               <Card>
                 <CardContent className="pt-6 text-center">
                   <Clock className="h-6 w-6 mx-auto mb-2 text-accent" />
@@ -124,11 +126,11 @@ const MessDetail = () => {
               </Card>
             </div>
 
-            <div className="flex gap-3">
-              <Button variant="hero" size="lg" className="flex-1">
+            <div className="flex gap-2 md:gap-3">
+              <Button variant="hero" size="lg" className="flex-1 text-sm md:text-base">
                 Subscribe Now
               </Button>
-              <Button variant="outline" size="lg">
+              <Button variant="outline" size="lg" className="text-sm md:text-base">
                 Contact
               </Button>
             </div>
@@ -136,15 +138,15 @@ const MessDetail = () => {
         </div>
 
         {/* Tabs Section */}
-        <Tabs defaultValue="plans" className="mb-12">
-          <TabsList className="grid w-full grid-cols-3">
+        <Tabs defaultValue="plans" className="mb-8 md:mb-12">
+          <TabsList className="grid w-full grid-cols-3 text-xs md:text-sm">
             <TabsTrigger value="plans">Subscription Plans</TabsTrigger>
             <TabsTrigger value="menu">Sample Menu</TabsTrigger>
             <TabsTrigger value="reviews">Reviews</TabsTrigger>
           </TabsList>
           
-          <TabsContent value="plans" className="mt-6">
-            <div className="grid md:grid-cols-3 gap-6">
+          <TabsContent value="plans" className="mt-4 md:mt-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
               {plans.map((plan) => (
                 <Card 
                   key={plan.id} 
@@ -255,6 +257,8 @@ const MessDetail = () => {
           </TabsContent>
         </Tabs>
       </div>
+      
+      <BottomNav />
     </div>
   );
 };

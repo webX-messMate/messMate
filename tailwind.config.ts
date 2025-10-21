@@ -69,7 +69,7 @@ export default {
       },
       boxShadow: {
         'luxury': 'var(--shadow-luxury)',
-        'card-hover': 'var(--shadow-card)',
+        'card-hover': 'var(--shadow-card-hover)',
       },
       borderRadius: {
         lg: "var(--radius)",

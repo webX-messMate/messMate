@@ -47,6 +47,7 @@ All colors MUST be HSL.
 
     --shadow-luxury: 0 10px 40px -12px hsl(42 85% 55% / 0.25);
     --shadow-card: 0 4px 20px -4px hsl(215 25% 15% / 0.08);
+    --shadow-card-hover: 0 8px 30px -6px hsl(215 25% 15% / 0.15);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -96,6 +97,7 @@ All colors MUST be HSL.
 
     --shadow-luxury: 0 10px 40px -12px hsl(42 85% 55% / 0.35);
     --shadow-card: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
+    --shadow-card-hover: 0 8px 30px -6px hsl(0 0% 0% / 0.4);
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -114,6 +116,20 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Mobile-first touch targets */
+  @media (max-width: 768px) {
+    button, a {
+      min-height: 44px;
+    }
+  }
+
+  /* Smooth scrolling for mobile */
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
   }
 }

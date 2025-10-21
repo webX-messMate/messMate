@@ -28,8 +28,8 @@ const MessCard = ({
   distance 
 }: MessCardProps) => {
   return (
-    <Card className="group overflow-hidden transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1">
-      <div className="relative h-48 overflow-hidden">
+    <Card className="group overflow-hidden transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1 active:scale-[0.98]">
+      <div className="relative h-40 md:h-48 overflow-hidden">
         <img 
           src={image} 
           alt={name}
@@ -53,43 +53,43 @@ const MessCard = ({
         )}
       </div>
       
-      <CardHeader className="pb-3">
+      <CardHeader className="pb-2 md:pb-3">
         <div className="flex items-start justify-between">
           <div className="flex-1">
-            <CardTitle className="text-lg group-hover:text-primary transition-colors">
+            <CardTitle className="text-base md:text-lg group-hover:text-primary transition-colors">
               {name}
             </CardTitle>
-            <CardDescription className="flex items-center mt-1">
+            <CardDescription className="flex items-center mt-0.5 md:mt-1 text-xs md:text-sm">
               <MapPin className="h-3 w-3 mr-1" />
               {location}
             </CardDescription>
           </div>
-          <div className="flex items-center space-x-1 bg-accent/10 px-2 py-1 rounded-lg">
-            <Star className="h-4 w-4 fill-accent text-accent" />
-            <span className="font-semibold text-sm">{rating}</span>
+          <div className="flex items-center space-x-1 bg-accent/10 px-1.5 md:px-2 py-0.5 md:py-1 rounded-lg">
+            <Star className="h-3.5 w-3.5 md:h-4 md:w-4 fill-accent text-accent" />
+            <span className="font-semibold text-xs md:text-sm">{rating}</span>
           </div>
         </div>
       </CardHeader>
 
-      <CardContent className="pb-3">
-        <div className="flex flex-wrap gap-2">
+      <CardContent className="pb-2 md:pb-3">
+        <div className="flex flex-wrap gap-1.5 md:gap-2">
           {tags.slice(0, 3).map((tag) => (
-            <Badge key={tag} variant="secondary" className="text-xs">
+            <Badge key={tag} variant="secondary" className="text-[10px] md:text-xs px-1.5 md:px-2">
               {tag}
             </Badge>
           ))}
         </div>
       </CardContent>
 
-      <CardFooter className="flex items-center justify-between pt-3 border-t">
+      <CardFooter className="flex items-center justify-between pt-2 md:pt-3 border-t">
         <div>
-          <p className="text-xs text-muted-foreground">Starting from</p>
-          <p className="text-lg font-bold text-primary">
+          <p className="text-[10px] md:text-xs text-muted-foreground">Starting from</p>
+          <p className="text-base md:text-lg font-bold text-primary">
             AED {priceFrom}
-            <span className="text-sm font-normal text-muted-foreground">/day</span>
+            <span className="text-xs md:text-sm font-normal text-muted-foreground">/day</span>
           </p>
         </div>
-        <Button variant="hero" size="sm" asChild>
+        <Button variant="hero" size="sm" asChild className="h-8 md:h-9 text-xs md:text-sm">
           <Link to={`/mess/${id}`}>View Plans</Link>
         </Button>
       </CardFooter>
