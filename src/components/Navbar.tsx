@@ -1,18 +1,19 @@
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { UtensilsCrossed, User, MapPin } from "lucide-react";
+import MessMateLogo from "../assets/messMateLogoIcon.png";
 
 const Navbar = () => {
   const location = useLocation();
-  
+
   const isActive = (path: string) => location.pathname === path;
-  
+
   return (
     <nav className="hidden md:block sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center space-x-2">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-luxury">
-            <UtensilsCrossed className="h-6 w-6 text-primary-foreground" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg">
+            <img src={MessMateLogo} alt="Logo" />
           </div>
           <span className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent">
             MessMate
@@ -20,23 +21,23 @@ const Navbar = () => {
         </Link>
 
         <div className="flex items-center space-x-1">
-          <Button 
-            variant={isActive("/") ? "secondary" : "ghost"} 
-            size="sm" 
+          <Button
+            variant={isActive("/") ? "secondary" : "ghost"}
+            size="sm"
             asChild
           >
             <Link to="/">Home</Link>
           </Button>
-          <Button 
-            variant={isActive("/browse") ? "secondary" : "ghost"} 
-            size="sm" 
+          <Button
+            variant={isActive("/browse") ? "secondary" : "ghost"}
+            size="sm"
             asChild
           >
             <Link to="/browse">Browse Messes</Link>
           </Button>
-          <Button 
-            variant={isActive("/dashboard") ? "secondary" : "ghost"} 
-            size="sm" 
+          <Button
+            variant={isActive("/dashboard") ? "secondary" : "ghost"}
+            size="sm"
             asChild
           >
             <Link to="/dashboard">Dashboard</Link>
